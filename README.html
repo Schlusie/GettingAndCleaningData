@@ -153,14 +153,14 @@ This subsequently loads the used data sets which are in
 <p>After running the code two tidy data sets (as described in the instructions) are saved:</p>
 
 <ol>
-<li><a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset1.txt">tidy_dataset1.txt</a>: consists of a <code>10299x81</code> with <code>;</code>-seperation, header and no row.names</li>
-<li><a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset2.txt">tidy_dataset2.txt</a>: consists of a <code>180x81</code> with <code>;</code>-seperation, header and no row.names</li>
+<li><a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset1.txt">tidy_dataset1.txt</a>: consists of a <code>10299x81</code> with <code>;</code>-seperation, <code>.</code>-decimals, header and no row.names</li>
+<li><a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset2.txt">tidy_dataset2.txt</a>: consists of a <code>180x81</code> with <code>;</code>-seperation, <code>.</code>-decimals, header and no row.names</li>
 </ol>
 
 <p>You can load the data via the codes:</p>
 
-<pre><code>tidy1 &lt;- read.table(&quot;tidy_dataset1.txt&quot;, sep=&quot;;&quot;, header=TRUE)
-tidy2 &lt;- read.table(&quot;tidy_dataset2.txt&quot;, sep=&quot;;&quot;, header=TRUE)
+<pre><code>tidy1 &lt;- read.table(&quot;tidy_dataset1.txt&quot;, sep=&quot;;&quot;, dec=&quot;.&quot;, header=TRUE)
+tidy2 &lt;- read.table(&quot;tidy_dataset2.txt&quot;, sep=&quot;;&quot;, dec=&quot;.&quot;, header=TRUE)
 </code></pre>
 
 <p><a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/CodeBook.md">CodeBook.md</a> describes what is done in <a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/run_analysis.R">run_analysis.R</a>.</p>

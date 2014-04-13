@@ -24,8 +24,8 @@ all the columns.
 
 ### 2. dataset description
 
-[tidy_dataset1.txt][tidy1] is of dimension `10299x81` with `;`-seperation, header and no row.names
-and [tidy_dataset2.txt][tidy2] is of dimension `180x81` with `;`-seperation, header and no row.names.
+[tidy_dataset1.txt][tidy1] is of dimension `10299x81` with `;`-seperation, `.`-decimals, header and no row.names
+and [tidy_dataset2.txt][tidy2] is of dimension `180x81` with `;`-seperation, `.`-decimals, header and no row.names.
 The second one has a mean of all the columns for every *ID* and *activity* combination.
 
 The variables are as follows ([tidy_dataset2.txt][tidy2] has an `_mean` appended to every columname)

@@ -10,13 +10,13 @@ This subsequently loads the used data sets which are in
 
 After running the code two tidy data sets (as described in the instructions) are saved:
 
-1. [tidy_dataset1.txt][tidy1]: consists of a `10299x81` with `;`-seperation, header and no row.names
-2. [tidy_dataset2.txt][tidy2]: consists of a `180x81` with `;`-seperation, header and no row.names
+1. [tidy_dataset1.txt][tidy1]: consists of a `10299x81` with `;`-seperation, `.`-decimals, header and no row.names
+2. [tidy_dataset2.txt][tidy2]: consists of a `180x81` with `;`-seperation, `.`-decimals, header and no row.names
 
 You can load the data via the codes:
 ```
-tidy1 <- read.table("tidy_dataset1.txt", sep=";", header=TRUE)
-tidy2 <- read.table("tidy_dataset2.txt", sep=";", header=TRUE)
+tidy1 <- read.table("tidy_dataset1.txt", sep=";", dec=".", header=TRUE)
+tidy2 <- read.table("tidy_dataset2.txt", sep=";", dec=".", header=TRUE)
 ```
 
 [CodeBook.md][code] describes what is done in [run_analysis.R][analysis].
