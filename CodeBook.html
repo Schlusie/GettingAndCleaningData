@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Code Book</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Code Book</h1>
+
+<h3>1. Processing data</h3>
+
+<p>This is a description of the <a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/run_analysis.R">run_analysis.R</a>-script</p>
+
+<ol>
+<li><code>activity_labels.txt</code> and <code>features.txt</code>is loaded</li>
+<li><code>X_test.txt</code>, <code>y_test.txt</code> and <code>subject_test.txt</code> is loaded. respectively with train.</li>
+<li>subject_test/train describes the IDs, y_test/train the activity labels and x_test/train the features.</li>
+<li>appending the three train files</li>
+<li>appending the three test files</li>
+<li>appending the whole train and test file to get the merged test file</li>
+<li>ordering via the ID column</li>
+<li>labeling the activity column with the labels of <code>activity_labels.txt</code></li>
+<li>extracting all columns with <code>&quot;mean&quot;</code> and <code>&quot;std&quot;</code> via the <code>grep</code> function and
+making first tidy data set <a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset1.txt">tidy_dataset1.txt</a>.</li>
+<li>with help of the <code>plyr</code>-package calculating means for each ID and activity for 
+all the columns.</li>
+<li>adding <code>_mean</code> at the end of every column-name</li>
+<li>result is the second tidy dataset <a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset2.txt">tidy_dataset2.txt</a></li>
+</ol>
+
+<h3>2. dataset description</h3>
+
+<p><a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset1.txt">tidy_dataset1.txt</a> is of dimension <code>10299x81</code> with <code>;</code>-seperation, header and no row.names
+and <a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset2.txt">tidy_dataset2.txt</a> is of dimension <code>180x81</code> with <code>;</code>-seperation, header and no row.names.</p>
+
+<p>The variables are as follows (<a href="https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset2.txt">tidy_dataset2.txt</a> has an <code>_mean</code> appended to every columname)</p>
+
+<ul>
+<li>&ldquo;ID&rdquo;<br/></li>
+<li>&ldquo;activity&rdquo;<br/></li>
+<li>&ldquo;tBodyAcc.std&hellip;X&rdquo;<br/></li>
+<li>&ldquo;tBodyAcc.std&hellip;Y&rdquo;<br/></li>
+<li>&ldquo;tBodyAcc.std&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tGravityAcc.std&hellip;X&rdquo;<br/></li>
+<li>&ldquo;tGravityAcc.std&hellip;Y&rdquo;<br/></li>
+<li>&ldquo;tGravityAcc.std&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tBodyAccJerk.std&hellip;X&rdquo;<br/></li>
+<li>&ldquo;tBodyAccJerk.std&hellip;Y&rdquo;<br/></li>
+<li>&ldquo;tBodyAccJerk.std&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tBodyGyro.std&hellip;X&rdquo;<br/></li>
+<li> &ldquo;tBodyGyro.std&hellip;Y&rdquo;<br/></li>
+<li>&ldquo;tBodyGyro.std&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tBodyGyroJerk.std&hellip;X&rdquo;<br/></li>
+<li>  &ldquo;tBodyGyroJerk.std&hellip;Y&rdquo;<br/></li>
+<li>&ldquo;tBodyGyroJerk.std&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tBodyAccMag.std..&rdquo;<br/></li>
+<li>  &ldquo;tGravityAccMag.std..&rdquo;<br/></li>
+<li>&ldquo;tBodyAccJerkMag.std..&rdquo;<br/></li>
+<li>&ldquo;tBodyGyroMag.std..&rdquo;<br/></li>
+<li>  &ldquo;tBodyGyroJerkMag.std..&rdquo;<br/></li>
+<li>&ldquo;fBodyAcc.std&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyAcc.std&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyAcc.std&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;fBodyAccJerk.std&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyAccJerk.std&hellip;Y&rdquo;<br/></li>
+<li> &ldquo;fBodyAccJerk.std&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;fBodyGyro.std&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyGyro.std&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyGyro.std&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;fBodyAccMag.std..&rdquo;<br/></li>
+<li>&ldquo;fBodyBodyAccJerkMag.std..&rdquo;<br/></li>
+<li>  &ldquo;fBodyBodyGyroMag.std..&rdquo;<br/></li>
+<li> &ldquo;fBodyBodyGyroJerkMag.std..&rdquo;<br/></li>
+<li> &ldquo;tBodyAcc.mean&hellip;X&rdquo;<br/></li>
+<li>  &ldquo;tBodyAcc.mean&hellip;Y&rdquo;<br/></li>
+<li> &ldquo;tBodyAcc.mean&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tGravityAcc.mean&hellip;X&rdquo;<br/></li>
+<li>  &ldquo;tGravityAcc.mean&hellip;Y&rdquo;<br/></li>
+<li> &ldquo;tGravityAcc.mean&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tBodyAccJerk.mean&hellip;X&rdquo;<br/></li>
+<li>  &ldquo;tBodyAccJerk.mean&hellip;Y&rdquo;<br/></li>
+<li> &ldquo;tBodyAccJerk.mean&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;tBodyGyro.mean&hellip;X&rdquo;<br/></li>
+<li> &ldquo;tBodyGyro.mean&hellip;Y&rdquo;<br/></li>
+<li> &ldquo;tBodyGyro.mean&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tBodyGyroJerk.mean&hellip;X&rdquo;<br/></li>
+<li>  &ldquo;tBodyGyroJerk.mean&hellip;Y&rdquo;<br/></li>
+<li> &ldquo;tBodyGyroJerk.mean&hellip;Z&rdquo;<br/></li>
+<li>&ldquo;tBodyAccMag.mean..&rdquo;<br/></li>
+<li>  &ldquo;tGravityAccMag.mean..&rdquo;<br/></li>
+<li>&ldquo;tBodyAccJerkMag.mean..&rdquo;<br/></li>
+<li>&ldquo;tBodyGyroMag.mean..&rdquo;<br/></li>
+<li>  &ldquo;tBodyGyroJerkMag.mean..&rdquo;<br/></li>
+<li> &ldquo;fBodyAcc.mean&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyAcc.mean&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyAcc.mean&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;fBodyAcc.meanFreq&hellip;X&rdquo;<br/></li>
+<li> &ldquo;fBodyAcc.meanFreq&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyAcc.meanFreq&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;fBodyAccJerk.mean&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyAccJerk.mean&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyAccJerk.mean&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;fBodyAccJerk.meanFreq&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyAccJerk.meanFreq&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyAccJerk.meanFreq&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;fBodyGyro.mean&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyGyro.mean&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyGyro.mean&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;fBodyGyro.meanFreq&hellip;X&rdquo;<br/></li>
+<li>&ldquo;fBodyGyro.meanFreq&hellip;Y&rdquo;<br/></li>
+<li>  &ldquo;fBodyGyro.meanFreq&hellip;Z&rdquo;<br/></li>
+<li> &ldquo;fBodyAccMag.mean..&rdquo;<br/></li>
+<li>&ldquo;fBodyAccMag.meanFreq..&rdquo;<br/></li>
+<li>  &ldquo;fBodyBodyAccJerkMag.mean..&rdquo;<br/></li>
+<li> &ldquo;fBodyBodyAccJerkMag.meanFreq..&rdquo;<br/></li>
+<li>&ldquo;fBodyBodyGyroMag.mean..&rdquo;<br/></li>
+<li>  &ldquo;fBodyBodyGyroMag.meanFreq..&rdquo;<br/></li>
+<li> &ldquo;fBodyBodyGyroJerkMag.mean..&rdquo;<br/></li>
+<li>&ldquo;fBodyBodyGyroJerkMag.meanFreq..&rdquo;</li>
+</ul>
+
+</body>
+
+</html>
+

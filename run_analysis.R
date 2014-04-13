@@ -54,20 +54,12 @@ write.table(tidy1, "tidy_dataset1.txt", sep=";", row.names=FALSE)
 
 
 # second tidy data set with ID and activity means
-tidy2 <- ddply(extractFull, .(ID, activity), .fun=function(x){
+tidy2 <- ddply(tidy1, .(ID, activity), .fun=function(x){
   colMeans(x[,-c(1:2)])
 })
+colnames(tidy2)[-c(1:2)] <- paste0(colnames(tidy2)[-c(1:2)], "_mean")
 
 summary(tidy2)
 dim(tidy2)
 write.table(tidy2, "tidy_dataset2.txt", sep=";", row.names=FALSE)
-
-
-
-
-
-
-
-
-
 
