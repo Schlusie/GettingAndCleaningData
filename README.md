@@ -19,6 +19,9 @@ tidy1 <- read.table("tidy_dataset1.txt", sep=";", header=TRUE)
 tidy2 <- read.table("tidy_dataset2.txt", sep=";", header=TRUE)
 ```
 
+[CodeBook.md][code] describes what is done in [run_analysis.R][analysis].
+
+
 have fun!
 
 
@@ -26,3 +29,4 @@ have fun!
 [zip]: https://github.com/Schlusie/GettingAndCleaningData/blob/master/getdata_projectfiles_UCI%20HAR%20Dataset.zip
 [tidy1]: https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset1.txt
 [tidy2]: https://github.com/Schlusie/GettingAndCleaningData/blob/master/tidy_dataset2.txt
+[code]: https://github.com/Schlusie/GettingAndCleaningData/blob/master/CodeBook.md
