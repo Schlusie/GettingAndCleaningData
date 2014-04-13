@@ -50,6 +50,7 @@ tidy1 <- full[,c(1,2,
                  grep("mean", names(full)))]
 summary(tidy1)
 dim(tidy1)
+write.table(tidy1, "tidy_dataset1.txt", sep=";", row.names=FALSE)
 
 
 # second tidy data set with ID and activity means
@@ -59,6 +60,7 @@ tidy2 <- ddply(extractFull, .(ID, activity), .fun=function(x){
 
 summary(tidy2)
 dim(tidy2)
+write.table(tidy2, "tidy_dataset2.txt", sep=";", row.names=FALSE)
 
 
 
